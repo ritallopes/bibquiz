@@ -51,7 +51,8 @@
       "colors": {
         "primary": "#2c387e",
         "secondary": "#e89c3f",
-        "mainBg": "#213f4e",
+        "mainBg": "#ffffff",
+        "secondaryBg": "#2c387e",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",
         "success": "#4CAF50"

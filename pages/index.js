@@ -1,10 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
-import db from '../db.json';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import BackgroundQuiz from '../src/components/QuizBackground';
-
 
 export const QuizContainer = styled.div`
   width:100%;
@@ -15,29 +16,50 @@ export const QuizContainer = styled.div`
     margin: auto;
     padding: 15px;
   }
-`
-
-
+`;
 export default function Home() {
-  return( 
-    <BackgroundQuiz>
-      <QuizContainer>
-        <Widget>
-          <Widget.Header><h1>Quiz sobre Linguagem de Programação</h1></Widget.Header>
-          <Widget.Content>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Widget>
-          <Widget.Content>
-            <h1>Mais quizzes</h1>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-       <Footer/>
-      </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/ritallopes"/>
+  const router = useRouter();
+  let name = '';
+  return (
+    <>
+      <Head>
+        <title>BibQuiz</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <BackgroundQuiz>
+        <QuizContainer>
+          <Widget>
+            <Widget.Header><h1>Quiz - Quem sou eu? -</h1></Widget.Header>
+            <Widget.Content>
+              <form onSubmit={function (infosDoEvento) {
+                infosDoEvento.preventDefault();
+                router.push(`/quiz?name=${name}`);
+              }}>
+                <input
+                  onChange={
+                    function(infosDoEvento) {
+                      name = infosDoEvento.target.value;
+                    }
+                  }
+                  placeholder="Quem é você?"
+                />
+                <button type="submit" disabled={name.length === 0}>
+                  Jogar
+                  {name}
+                </button>
+              </form>
+            </Widget.Content>
+          </Widget>
+          <Widget>
+            <Widget.Content>
+              <h1>Versículo top</h1>
+              <p>Jesus chorou.</p>
+            </Widget.Content>
+          </Widget>
+          <Footer />
+        </QuizContainer>
+        <GitHubCorner projectUrl="https://github.com/ritallopes" />
       </BackgroundQuiz>
-    )
+    </>
+  );
 }
-
