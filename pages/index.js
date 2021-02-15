@@ -6,6 +6,9 @@ import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import BackgroundQuiz from '../src/components/QuizBackground';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
+
 
 export const QuizContainer = styled.div`
   width:100%;
@@ -17,9 +20,11 @@ export const QuizContainer = styled.div`
     padding: 15px;
   }
 `;
+
 export default function Home() {
   const router = useRouter();
-  let name = '';
+  const [name, setName] = React.useState('');
+
   return (
     <>
       <Head>
@@ -35,25 +40,22 @@ export default function Home() {
                 infosDoEvento.preventDefault();
                 router.push(`/quiz?name=${name}`);
               }}>
-                <input
-                  onChange={
-                    function(infosDoEvento) {
-                      name = infosDoEvento.target.value;
-                    }
-                  }
+                <Input
+                  name="nomeDoUsuário"
+                  onChange={(infosDoEvento) => { setName(infosDoEvento.target.value)}}
                   placeholder="Quem é você?"
+                  value={name}
                 />
-                <button type="submit" disabled={name.length === 0}>
-                  Jogar
-                  {name}
-                </button>
+                <Button type="submit" disabled={name.length === 0}>
+                  {`Jogar ${name}`}
+                </Button>
               </form>
             </Widget.Content>
           </Widget>
           <Widget>
             <Widget.Content>
               <h1>Versículo top</h1>
-              <p>Jesus chorou.</p>
+              <p>Venha a mim</p>
             </Widget.Content>
           </Widget>
           <Footer />
