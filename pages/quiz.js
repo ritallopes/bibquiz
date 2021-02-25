@@ -25,6 +25,7 @@ function QuestionWidget({
   question,
   questionIndex,
   totalQuestions,
+  onSubmit,
 }) {
   const questionId=`question__${questionIndex}`
   return (
@@ -50,7 +51,10 @@ function QuestionWidget({
         <p>
           {question.description}
         </p>
-        <form>
+        <form onSubmit={(infosDoEvento)=>{
+          infosDoEvento.preventDefault();
+          onSubmit();
+        }}>
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
             return (
@@ -90,7 +94,8 @@ const screenStates = {
 function QuizPage() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
-  const questionIndex = 0;
+  const [currentQuestion,setCurrentQuestion] = React.useState(0);
+  const questionIndex= currentQuestion;
   const question = db.questions[questionIndex];
 
   React.useEffect(() => {
@@ -104,7 +109,14 @@ function QuizPage() {
   // atualiza === willUpdate
   // morre === willUnmount
   // Com function (não class): usar hook : React.useEffect
-
+  function handleSubmitDoQuiz(){
+    const nextQuestion = questionIndex +1;
+    if(nextQuestion < totalQuestions){
+      setCurrentQuestion(questionIndex+1);
+    }else{
+      setScreenState(screenStates.RESULT);
+    }
+  }
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -114,6 +126,7 @@ function QuizPage() {
             question={question}
             questionIndex={questionIndex}
             totalQuestions={totalQuestions}
+            onSubmit={handleSubmitDoQuiz}
           />
         )}
         {screenState === screenStates.LOADING && <LoadingWidget />}
