@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import Button from '../src/components/Button';
-import AlternativesForm from '../src/components/AlternativesForm';
+import Widget from '../../components/Widget';
+import QuizContainer from '../../components/QuizContainer';
+import QuizBackground from '../../components/QuizBackground';
+import QuizLogo from '../../components/QuizLogo';
+import Button from '../../components/Button';
+import AlternativesForm from '../../components/AlternativesForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
+
 
 function LoadingWidget () {
   return (
@@ -72,6 +73,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -147,13 +149,14 @@ const screenStates = {
 };
 
 
-function QuizPage() {
+function QuizPage({ externalQuestions, externalBg}) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
-  const totalQuestions = db.questions.length;
+  const totalQuestions =  externalQuestions.length;
   const [currentQuestion,setCurrentQuestion] = React.useState(0);
   const questionIndex= currentQuestion;
-  const question = db.questions[questionIndex];
+  const question =  externalQuestions[questionIndex];
+  const bg = externalBg;
 
   function addResult(result) {
     //results.push(result);
@@ -165,12 +168,15 @@ function QuizPage() {
       setScreenState(screenStates.QUIZ);
     }, 1 * 1000);
   }, []);
+
+  
   // [React chama de: Efeitos || Effects]
   // CICLO DE VIDA
   // nasce === didMount
   // atualiza === willUpdate
   // morre === willUnmount
   // Com function (não class): usar hook : React.useEffect
+
   function handleSubmitQuiz(){
     const nextQuestion = questionIndex +1;
     if(nextQuestion < totalQuestions){
@@ -180,7 +186,7 @@ function QuizPage() {
     }
   }
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={ bg }>
       <QuizContainer>
         <QuizLogo />
         {screenState === screenStates.QUIZ && (
