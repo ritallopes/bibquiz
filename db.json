@@ -1,51 +1,60 @@
 {
-    "bg": "https://www.hitalent.co/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMmJDQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--1452099b706ad7d079f7a3a4dd5d702ebeeae45f/HiTalent.png",
-    "title": "Quiz JavaScript #AluraQuiz",
-    "description": "Um quiz rápido sobre o mundo do JavaScript",
+    "bg": "assets/bgMain.jpg",
+    "title": "Quiz Biblíco",
+    "description": "Um quiz para você descobrir quem é cada personagem",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/j5P0DQIOf4PonLi55G/giphy.gif",
-        "title": "Qual a diferença entre = , == e === ?",
-        "description": "Pergunta fácil em!",
-        "answer": 1,
+        "image": "/assets/deserto.png",
+        "title": "Fui com meu marido e meus dois para as terras de Moabe. Ao fim, voltei para Israel com minha nora.",
+        "description": "Rute 1",
+        "answer": 2,
         "alternatives": [
-          "São a mesma coisa",
-          "O = significa atribuição de valor. Já == verifica a igualdade do valor, enquanto === verifica valor e tipo de variável."
+          "Rute",
+          "Ester",
+          "Noemi",
+          "Débora"
+        ]
+      },
+       {
+        "image": "/assets/bible.png",
+        "title": "Corri atrás de um carro com um eunuco etíope, ouvi ele lendo Isaías, ele creu no Senhor Jesus e eu o batizei.",
+        "description": "Atos 8",
+        "answer":1,
+        "alternatives": [
+          "Estevão",
+          "Filipe",
+          "Barnabé",
+          "Lídia"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/Ie2Hs3A0uJRtK/giphy.gif",
-        "title": "Que tipos de dados são suportados em JavaScript?",
-        "description": "E agora? Você sabe?",
-        "answer": 0,
+        "image":  "/assets/bible.png",
+        "title": "Fui pastor de ovelhas e morri por ter oferecido ao Senhor minha melhor oferta. Mas eu agradei ao Senhor. E sou lembrado até hoje com herói da fé.",
+        "description": "Gênesis 4",
+        "answer":2,
         "alternatives": [
-          "Number, String, Undefined, Null e Bool.",
-          "Int, String, Undefined, Null e Bool."
+          "Moisés",
+          "Sete",
+          "Abel",
+          "Jefté"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/iI4vhciiVh2b3j9sgo/giphy.gif",
-        "title": "Qual a diferença de window e global?",
-        "answer": 1,
+        "image": "/assets/bible.png",
+        "title": "Era filho de uma prostituta. Tive que fugir dos meus irmãos. Me tornei líder de endividados e descontentes. Mas no fim, fui usado por Deus para salvar meu povo dos amonitas.",
+        "description": "Juízes 11",
+        "answer":3,
         "alternatives": [
-          "São a mesma coisa",
-          "window é o escopo global no browser, e global no node"
-        ]
-      },
-      {
-        "image": "https://media.giphy.com/media/iI4vhciiVh2b3j9sgo/giphy.gif",
-        "title": "Qual a forma antiga de trabalhar com AJAX na Web?",
-        "answer": 1,
-        "alternatives": [
-          "JSONHttpRequest",
-          "XMLHttpRequest",
-          "fetch"
+          "Davi",
+          "Gideão",
+          "Mara",
+          "Jefté"
         ]
       }
     ],
     "external": [
-      "https://aluraquiz-css.omariosouto.vercel.app/",
-      "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+      "João 1",
+      "Salmos 119"
     ],
     "theme": {
       "colors": {
