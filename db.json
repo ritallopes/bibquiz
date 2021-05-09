@@ -1,5 +1,5 @@
 {
-    "bg": "assets/bgMain.jpg",
+    "bg": "/assets/bgMain.jpg",
     "title": "Quiz Biblíco",
     "description": "Um quiz para você descobrir quem é cada personagem",
     "questions": [
@@ -53,8 +53,7 @@
       }
     ],
     "external": [
-      "João 1",
-      "Salmos 119"
+      "https://www.abibliadigital.com.br/api/verses/nvi/sl/random"
     ],
     "theme": {
       "colors": {
@@ -66,6 +65,7 @@
         "wrong": "#FF5722",
         "success": "#4CAF50"
       },
-      "borderRadius": "4px"
+      "borderRadius": "4px",
+      "bg":"/assets/bgMain.jpg"
     }
   }

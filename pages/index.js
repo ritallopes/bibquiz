@@ -22,11 +22,27 @@ export const QuizContainer = styled.div`
     padding: 15px;
   }
 `;
+export async function getServerSideProps(context) {
+  const res = await fetch(`https://www.abibliadigital.com.br/api/verses/nvi/sl/random`);
+  console.log(db.external)
 
-export default function Home() {
+  const data = await res.json()
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  return {
+    props: {
+      verse:data,
+    },
+  }
+}
+
+
+export default function Home({verse}) {
   const router = useRouter();
   const [name, setName] = React.useState('');
-
   return (
     <>
       <Head>
@@ -75,18 +91,15 @@ export default function Home() {
             <Widget.Content>
               <h1>Versos para hoje e para depois também</h1>
               <ul>
-                {db.external.map((linkExterno)=>{
-                  const [projectName, githubUser] = linkExterno.replace(/\//g,'').replace('https:','').replace('.vercel.app','').split('.');
-                  return (
-                    <li key={linkExterno}>
-                      <Widget.Topic 
-                         as = {Link}
-                         href={`/quiz/${projectName}___${githubUser}`}
-                      >
-                        {`${githubUser}/${projectName}`}
-                      </Widget.Topic>
-                    </li>);
-                })}
+                <li>{ verse &&
+                  <Widget.Topic 
+                     as = {Link}
+                     href={`https://www.bibliaonline.com.br/nvi/${verse.book.abbrev.pt}/${verse.chapter}`}
+                  >
+                    {verse.text}
+                  </Widget.Topic>
+                }
+                </li>
               </ul>
             </Widget.Content>
           </Widget>
