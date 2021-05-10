@@ -9,6 +9,10 @@ const QuizContainer = styled.div`
       margin: auto;
       padding: 15px;
   }
+  img.logo{
+  	text-align:center;
+  	items-align:center;
+  }
 `;
 
 export default QuizContainer;

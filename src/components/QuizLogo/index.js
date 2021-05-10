@@ -22,6 +22,7 @@ const QuizLogo = styled(Logo)`
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+  text-align:center;
   @media screen and (max-width: 500px) {
     margin: 0;
   }

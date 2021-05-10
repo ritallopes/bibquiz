@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const { theme } = db;
+const { theme} = db;
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href="/static/favicon.ico" />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme} >
         <GlobalStyle />
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
