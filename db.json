@@ -50,6 +50,78 @@
           "Mara",
           "Jefté"
         ]
+      },
+         {
+        "image": "/assets/bible.png",
+        "title": "Sou o discípulo amado",
+        "description": "João 21",
+        "answer":2,
+        "alternatives": [
+          "Natanael",
+          "Filipe",
+          "João",
+          "Pedro"
+        ]
+      },
+        {
+        "image": "/assets/bible.png",
+        "title": "Fui corajosamente pedir o corpo do Senhor Jesus a Pilatos após sua morte.",
+        "description": "Marcos 15",
+        "answer":0,
+        "alternatives": [
+          "José de Arimatéia",
+          "Nicodemos",
+          "Zaqueu",
+          "Jairo"
+        ]
+      },
+        {
+        "image": "/assets/bible.png",
+        "title": "Peguei minha candeia, sai para encontrar-me com o Noivo, levei óleo em vasilhas junto com a candeia.",
+        "description": "Mateus 25",
+        "answer":3,
+        "alternatives": [
+          "Ester",
+          "Rute",
+          "A Sulamita",
+          "Virgem prudente"
+        ]
+      },
+        {
+        "image": "/assets/bible.png",
+        "title": "Jesus veio chamar pessoas com eu.",
+        "description": "Mateus 25",
+        "answer":2,
+        "alternatives": [
+          "Indigente",
+          "Justo",
+          "Pecador",
+          "Prudente"
+        ]
+      },
+        {
+        "image": "/assets/bible.png",
+        "title": "Fiz um monumento em minha homenagem.",
+        "description": "Mateus 25",
+        "answer":1,
+        "alternatives": [
+          "Asa",
+          "Saul",
+          "Débora",
+          "Diótrefes"
+        ]
+      },
+        {
+        "image": "/assets/bible.png",
+        "title": "Procurei Jesus a noite, sou autoridade entre os judeus e o Mestre me explicou como ver e entrar no Reino de Deus.",
+        "description": "João 3",
+        "answer":3,
+        "alternatives": [
+          "João Batista",
+          "Gamaliel",
+          "Naim",
+          "Nicodemos"
+        ]
       }
     ],
     "external": [
